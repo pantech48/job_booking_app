@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*&c()pl0d-nz8&nu+eyqfev346bx+5j%xl+1_py3x2sz#d=1s@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'job_booking_app.urls'
@@ -134,3 +135,7 @@ REST_FRAMEWORK ={
         'django_filters.rest_framework.DjangoFilterBackend',
     )
 }
+
+import dj_database_url
+prod_db=dj_database_url.config(conn_max_age=500)
+DATABASE['default'].update(prod_db)

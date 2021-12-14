@@ -1,0 +1,1 @@
+web: gunicorn job_booking_app.wsgi --log-file - 
