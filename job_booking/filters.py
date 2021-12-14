@@ -3,8 +3,8 @@ from .models import *
 
 
 class WorkingPlaceFilter(filters.FilterSet):
-    datetime_from = filters.DateTimeFilter(lookup_expr="lt")
-    datetime_to = filters.DateTimeFilter(lookup_expr="lt")
+    datetime_from = filters.DateTimeFilter(field_name='datetime_from', lookup_expr="lt")
+    datetime_to = filters.DateTimeFilter(field_name='datetime_to', lookup_expr="gt")
 
     class Meta:
         model = Booking

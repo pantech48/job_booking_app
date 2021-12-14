@@ -7,7 +7,7 @@ from job_booking.permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 from job_booking.booking_functions.working_place_status import check_status
-from .services import WorkingPlaceFilter
+from .filters import WorkingPlaceFilter
 
 
 class WorkingPlaceCreateView(generics.CreateAPIView):
